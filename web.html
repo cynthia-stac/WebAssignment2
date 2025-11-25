@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="heading">What Can JavaScript Do?</h2>
+    <p id="paragraph">I will disappear when youb click the Button</p>
+    <button type="button" onclick='document.getElementById("paragraph").innerHTML="Hello Guys. This is JavaScript!. How are you?" '>Click here to Salute students</button> <br><br>
+
+    <img id="myImage" src="./images/car4.webp" alt="MHero" height="300px" width="400px"><br>
+    <button type="button" onclick='document.getElementById("myImage").src = "./images/car1.webp"'>car1</button>
+    <button type="button" onclick='document.getElementById("myImage").src = "./images/car2.jpg"'>car2</button>
+    <button type="button" onclick='document.getElementById("myImage").src = "./images/car3.webp"'>car3</button> <br><br>
+
+    <p id="show_me">I am the text</p>
+    <button type="button" onclick='document.getElementById("show_me").style.fontSize="80px" '>Increase</button>
+    <button type="button" onclick='document.getElementById("show_me").style.fontSize="30px" '>Decrease</button> <br><br>
+
+    <p id="myParagraph">Click the button below to hide me.</p>
+    <button type="button" onclick='document.getElementById("myParagraph").style.display="none"'>Hide Me!</button>
+    <button type="button" onclick='document.getElementById("myParagraph").style.display="block"'>UnHide Me!</button>
+    <h1>JavaScript Varaiables</h1>
+    <h2>Let us use this example ,x, y,and z are variables.</h2>
+    <p id="myx"></p>
+    <p id="myy"></p>
+    <p id="demo"></p>
+   <script>
+        let x = 30;
+        let y = 16;
+        let z = x + y ;
+        document.getElementById("myx").innerHTML = "The value of x is " + x;
+        document.getElementById("myy").innerHTML = "The value of y is " + y;
+        document.getElementById("demo").innerHTML = "The value of z is " + z;
+   </script>
+
+</body>
+</html>
