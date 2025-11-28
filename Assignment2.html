@@ -397,7 +397,31 @@
         <p><button id="btn49" style="height: 32px; width: 500px; margin-top: 20px;">Click Me To Call CreateTable() Function</button></p>
     </div>
 
+    <!-- Question 50 -->
 
+
+    <h2>50. Write a JavaScript function to validate a form (check if name, email, and password fields are filled)</h2></li>
+    <p><b>Answer:</b></p>
+
+    <form id="form50" onsubmit="return false;" style="max-width:520px;">
+        <label for="inp50name">Name</label><br>
+        <input id="inp50name" type="text" placeholder="Example: Theogene" style="height:30px; width:500px;"><br>
+        <div id="err50name" class="error-msg"></div>
+
+        <label for="inp50email">Email</label><br>
+        <input id="inp50email" type="email" placeholder="example@domain.com" style="height:30px; width:500px;"><br>
+        <div id="err50email" class="error-msg"></div>
+
+        <label for="inp50pass">Password</label><br>
+        <input id="inp50pass" type="password" placeholder="At least 5 characters" style="height:30px; width:500px;"><br>
+        <div id="err50pass" class="error-msg"></div>
+
+        <div style="margin-top:8px;">
+            <button id="btn50" style="height:32px;">Click here to get answer</button>
+        </div>
+    </form>
+
+    <p id="q50" style="color:green; font-size:18px;"></p>
 
 
     <script>
@@ -1055,7 +1079,63 @@
 
         // Question 50
 
-        
+        let nameEl = document.getElementById('inp50name');
+        let emailEl = document.getElementById('inp50email');
+        let passEl = document.getElementById('inp50pass');
+        let errName = document.getElementById('err50name');
+        let errEmail = document.getElementById('err50email');
+        let errPass = document.getElementById('err50pass');
+        let result50 = document.getElementById('q50');
+
+        document.getElementById('btn50').addEventListener('click', () => {
+            // reset states
+            [nameEl, emailEl, passEl].forEach(x => { x.classList.remove('invalid','valid'); });
+            errName.textContent = errEmail.textContent = errPass.textContent = '';
+            result50.textContent = '';
+
+            let name = nameEl.value.trim();
+            let email = emailEl.value.trim();
+            let pass = passEl.value;
+
+            let ok = true;
+
+            if(!name){
+                errName.textContent = 'Name is required';
+                nameEl.classList.add('invalid');
+                ok = false;
+            } else {
+                nameEl.classList.add('valid');
+            }
+
+            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!email){
+                errEmail.textContent = 'Email is required';
+                emailEl.classList.add('invalid');
+                ok = false;
+            } else if(!emailRe.test(email)){
+                errEmail.textContent = 'Enter a valid email address';
+                emailEl.classList.add('invalid');
+                ok = false;
+            } else {
+                emailEl.classList.add('valid');
+            }
+
+            if(!pass){
+                errPass.textContent = 'Password is required';
+                passEl.classList.add('invalid');
+                ok = false;
+            } else if(pass.length < 5){
+                errPass.textContent = 'Password must have at least 5 characters';
+                passEl.classList.add('invalid');
+                ok = false;
+            } else {
+                passEl.classList.add('valid');
+            }
+
+            if(ok){
+                result50.textContent = 'Form valid ✓';
+            }
+        });
 
 
 
